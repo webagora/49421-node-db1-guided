@@ -3,12 +3,27 @@ const Shipper = require('./shippers-model')
 
 const router = express.Router()
 
-function checkId(req, res, next) {
-  next()
+async function checkId(req, res, next) {
+  try{
+    const shipper = await Shipper.getById(req.params.id)
+    if(shipper){
+      req.shipper = shipper
+      next()
+    }else{
+      res.status(404).json({message:"Shipper not found"})
+    }
+  }catch(err){
+    next(err)
+  }
 }
 
 function checkPayload(req, res, next) {
-  next()
+  const {ShipperName,Phone} = req.body
+  if(ShipperName && Phone){
+    next();
+  }else{
+    res.status(400).json({message:"Shipper name and phone required"})
+  }
 }
 
 router.get('/', async (req, res, next) => {
