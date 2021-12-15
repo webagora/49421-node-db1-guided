@@ -9,7 +9,8 @@ module.exports = {
 }
 
 async function get() {
-  return 'get wired'
+  /*select * from shippers*/
+  return db("Shippers")
 }
 
 async function getById() {
