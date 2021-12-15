@@ -14,8 +14,8 @@ async function get() {
   //return db("Shippers").select("ShipperName")
 }
 
-async function getById() {
-  return 'getById wired'
+async function getById(id) {
+  return db("Shippers").where("ShipperID",id)
 }
 
 async function create() {
