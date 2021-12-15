@@ -28,6 +28,7 @@ async function update(id,{ShipperName,Phone}) {
   return getById(id)
 }
 
-async function remove() {
-  return 'delete wired'
+async function remove(id) {
+  const deletedShipper = await getById(id)
+  await db("Shippers").where("ShipperID",id).delete()
 }
