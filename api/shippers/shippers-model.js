@@ -18,8 +18,9 @@ async function getById(id) {
   return db("Shippers").where("ShipperID",id).first()
 }
 
-async function create() {
-  return 'create wired'
+async function create({ShipperName,Phone}) {
+  const [id] = await db("Shippers").insert({ShipperName,Phone})
+  return getById(id)
 }
 
 async function update() {
