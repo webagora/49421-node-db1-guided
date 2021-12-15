@@ -31,4 +31,5 @@ async function update(id,{ShipperName,Phone}) {
 async function remove(id) {
   const deletedShipper = await getById(id)
   await db("Shippers").where("ShipperID",id).delete()
+  return deletedShipper
 }
