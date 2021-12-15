@@ -15,7 +15,7 @@ async function get() {
 }
 
 async function getById(id) {
-  return db("Shippers").where("ShipperID",id)
+  return db("Shippers").where("ShipperID",id).first()
 }
 
 async function create() {
