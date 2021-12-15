@@ -10,7 +10,7 @@ module.exports = {
 
 async function get() {
   /*select * from shippers*/
-  return db("Shippers")
+  return db("Shippers").select("ShipperName")
 }
 
 async function getById() {
