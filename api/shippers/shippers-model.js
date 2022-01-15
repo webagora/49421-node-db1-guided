@@ -1,3 +1,5 @@
+const db = require('../../data/db-config')
+
 module.exports = {
   get,
   getById,
@@ -7,7 +9,9 @@ module.exports = {
 }
 
 async function get() {
-  return 'get wired'
+    /*select * from shippers*/
+    return db("Shippers")
+    // return db("Shippers").select("ShipperName")
 }
 
 async function getById() {
