@@ -14,8 +14,9 @@ async function get() {
     // return db("Shippers").select("ShipperName")
 }
 
-async function getById() {
-  return 'getById wired'
+async function getById(id) {
+  // select * from shippers where ShipperID = 2
+  return db('shippers').where('shipperid', id).first()
 }
 
 async function create() {
