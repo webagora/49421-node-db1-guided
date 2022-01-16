@@ -19,8 +19,10 @@ async function getById(id) {
   return db('shippers').where('shipperid', id).first()
 }
 
-async function create() {
-  return 'create wired'
+async function create({ShipperName,Phone}) {
+  // insert into shippers (shippername, phone) values ('Acme' '(101)-123-4567')
+  const [id] = await db("Shippers").insert({ShipperName,Phone})
+  return getById(id)
 }
 
 async function update() {
