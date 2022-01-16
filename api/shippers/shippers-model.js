@@ -25,8 +25,10 @@ async function create({ShipperName,Phone}) {
   return getById(id)
 }
 
-async function update() {
-  return 'update wired'
+async function update(id,{ShipperName,Phone}) {  
+  // update shippers set phone='(101)123-4567', shippername='Acme 8' where shipperid = 8
+  await db("Shippers").where("ShipperID",id).update({ShipperName,Phone})
+  return getById(id)
 }
 
 async function remove() {
